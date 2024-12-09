@@ -1,0 +1,34 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "CUDA: Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",   // 指定程序路径
+            "args": [],                 // 运行时传递的参数
+            "stopAtEntry": false,       // 是否在程序入口处暂停
+            "cwd": "${fileDirname}",    // 工作目录
+            "environment": [],          // 环境变量
+            "externalConsole": false,   // 是否使用外部控制台
+            "MIMode": "gdb",            // 调试模式
+            "miDebuggerPath":"/usr/bin/gdb",    // GDB路径
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "CUDA: nvcc build active file", // 在启动调试之前运行的任务
+            "logging": {
+                "engine": true
+            }
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "CUDA: nvcc build active file",
+            "command": "/usr/local/cuda/bin/nvcc",
+            "args": [
+                "${file}",
+                "-o",
+                "${fileBasenameNoExtension}",
+                "-Xcompiler",
+                "-O3 -std=c++14",
+                "-Xcompiler",
+                "-gdwarf_4",
+                "-gencode","-g","-G",
+                "arch=compute_50,code=sm_50",
+                "-gencode",
+                "arch=compute_52,code=sm_52",
+                "-gencode",
+                "arch=compute_53,code=sm_53",
+                "-gencode",
+                "arch=compute_60,code=sm_60",
+                "-gencode",
+                "arch=compute_61,code=sm_61", 
+                "-gencode",
+                "arch=compute_62,code=sm_62",   
+                "-gencode",
+                "arch=compute_70,code=sm_70", 
+                "-lhdf5",
+                "-lhdf5_cpp"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [],
+            "group": "build",
+            "detail": "Compile CUDA file using nvcc."
+        }
+    ]
+}

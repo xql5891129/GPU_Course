@@ -1,0 +1,20 @@
+(cuda-gdb) backtrace    //输出程序崩溃前的函数调用链，可能会帮助你找出导致程序中止的具体原因。
+(cuda-gdb) break main         # 设置断点在 main 函数
+(cuda-gdb) run                # 运行程序
+(cuda-gdb) next               # 逐行执行
+(cuda-gdb) break feat_stn_conv1 # 在核函数内设置断点
+(cuda-gdb) continue           # 继续运行到断点
+(cuda-gdb) print point_idx     # 在核函数中打印变量值
+(cuda-gdb) thread apply all bt # 打印所有线程的回溯
+(cuda-gdb) info cuda threads   # 查看所有 CUDA 线程的信息
+(cuda-gdb) thread <thread-id>  # 切换到指定的 CUDA 线程
+(cuda-gdb) cuda kernel block <block-id> thread <thread-id>  # 指定 block 和 thread 调试
+(cuda-gdb) step                # 进入核函数的下一步
+(cuda-gdb) print <variable>    # 打印线程中的变量值
+
+info locals #查看所有局部变量
+
+export TMPDIR=/var/tmp
+
+mcn0rqcz73
+    
